@@ -1,0 +1,245 @@
+---
+import Navbar from "../components/Navbar.astro";
+import FabTop from "../components/FabTop.astro";
+import Footer from "../components/Footer.astro";
+export interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <!-- FAVICONS -->
+    <link rel="icon" type="image/x-icon" href="https://www.avaya.com/static/avaya/assets/images/favicon.png" />
+    <link rel="apple-touch-icon" href="https://www.avaya.com/static/avaya/assets/images/favicon.png" />
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Unbounded:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- BOOTSTRAP CSS 5.2.3 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Navbar />
+    <FabTop />
+    <slot />
+    <Footer />
+    <!-- SPLIDE -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
+      rel="stylesheet"
+    />
+     <!-- BOOTSTRAP JS 5.2.3 -->
+     <script
+     src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+     crossorigin="anonymous"
+   ></script>
+    <script>
+      //FAB & NAV functionality
+
+      let mybutton = document.getElementById("topBtn");
+      let nav = document.querySelector(".navbar");
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function () {
+        scrollFunction();
+      };
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          mybutton.style.display = "block";
+          nav.classList.add("navDown");
+        } else {
+          mybutton.style.display = "none";
+          nav.classList.remove("navDown");
+        }
+      }
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+      mybutton.addEventListener("click", () => {
+        topFunction();
+      });
+
+      //COUNTER functionality
+      function animateNumbers() {
+        const counters = document.querySelectorAll(".counter__number");
+        const duration = 4000; // Duración total de la animación en milisegundos
+        const frameDuration = 900 / 30; // Duración de cada cuadro (60 cuadros por segundo)
+
+        counters.forEach((counter) => {
+          const target = +counter.getAttribute("data-target");
+          const increment = target / (duration / frameDuration);
+          let currentValue = 0;
+
+          const animate = () => {
+            currentValue += increment;
+
+            if (currentValue < target) {
+              counter.innerText = Math.ceil(currentValue);
+              requestAnimationFrame(animate);
+            } else {
+              counter.innerText = target;
+            }
+          };
+
+          animate();
+        });
+      }
+
+      let counter = document.querySelector("#counter-section");
+
+      // OBSERVER
+      let observerCounter = new IntersectionObserver((entries, observer) => {
+        for (let entry of entries) {
+          if (entry.isIntersecting) {
+            animateNumbers();
+          }
+        }
+      });
+      observerCounter.observe(counter);
+    </script>
+      <script>
+        document.addEventListener( 'DOMContentLoaded', function() {
+       var splide = new Splide( '#splideComplementary',{
+         start  : 1,
+         perPage: 3,
+         rewind: true,
+         drag   : 'free',
+         snap   : true,
+         type: 'loop',
+        autoplay: true,
+         focus  : 'center',
+         breakpoints: {
+        991.98: {
+          perPage: 1,
+        },
+      }
+       } );
+       splide.mount();
+     } );
+     </script>
+  </body>
+</html>
+<style is:global>
+  :root {
+    --white: #ffffff;
+    --black: #000000;
+    --web-black: #151515;
+    --red: #da291c;
+    --navy: #0d284d;
+    --purple: #683193;
+    --blue: #0194d7;
+    --green: #63c558;
+    --yellow: #f4e04d;
+    --gray-300: #333333;
+    --gray-200: #EFEFEF;
+    --gray-100: #f5f5f5;
+    --shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.07);
+    --font-main: "Noto Sans JP", sans-serif;
+    --font-title: "Unbounded", sans-serif;
+  }
+
+  * {
+    scroll-behavior: smooth;  
+  }
+
+  body {
+    font-family: var(--font-main);
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .bg-black {
+    background-color: var(--black);
+  }
+  .bg-red {
+    background-color: var(--red);
+  }
+  .bg-navy {
+    background-color: var(--navy);
+  }
+  .bg-purple {
+    background-color: var(--purple);
+  }
+  .bg-green {
+    background-color: var(--green);
+  }
+  .bg-yellow {
+    background-color: var(--yellow);
+  }
+  .bg-gray {
+    background-color: var(--gray-100);
+  }
+
+  .hero__title,
+  .avaya-title {
+    font-family: var(--font-title);
+    font-weight: 600;
+  }
+
+  .text-red{
+    color: var(--red);
+  }
+
+  .legalLink a {
+    color: var(--black) !important;
+    text-decoration: underline !important;
+    font-weight: 300;
+  }
+
+  .bg-blue-feather {
+    background-color: var(--navy);
+    background-image: url("https://www.avaya.com/static/avaya/assets/homepage/case_study_bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-attachment: fixed;
+    background-position: center;
+    background-position-y: 10%;
+  }
+
+  a{
+    color: #1B77AF;
+  }
+
+  a:hover{
+    color: #004E6C;
+  }
+
+  a:visited{
+    color: var(--purple);
+  }
+
+  ul{
+    list-style: square;
+  }
+
+</style>

@@ -1,0 +1,34 @@
+---
+export interface Props {
+  style: string;
+}
+
+const { style } = Astro.props;
+---
+<div class:list={[ style ]}>
+    <slot />
+</div>
+
+<style>
+    .border-1 {
+        background-image: url("https://www.avaya.com/static/avaya/assets/images/homepage/Solutions-1-FRAME.jpg");
+        background-size: cover;
+        padding: 15px;
+    }
+    .border-2 {
+        background-image: url("https://www.avaya.com/static/avaya/assets/images/homepage/Solutions-2-FRAME.jpg");
+        background-size: cover;
+        padding: 15px;
+    }
+    .border-3 {
+        background-image: url("https://www.avaya.com/static/avaya/assets/images/homepage/Solutions-3-FRAME.jpg");
+        background-size: cover;
+        padding: 15px;
+    }
+    .border-4 {
+        background-image: url("/assets/Solutions-4-FRAME.jpg");
+        background-size: cover;
+        padding: 15px;
+    }
+
+</style>

@@ -1,0 +1,77 @@
+---
+export interface Props {
+  title: string;
+  text: string;
+  img: string;
+  href: string;
+}
+
+const { title, text, img, href } = Astro.props;
+---
+
+<a href={href} target="_blank">
+    <div class="position-relative imgCard">
+        <div class="px-4">
+            <img class="imgCard__img bg-purple" src={img} alt="">
+        </div>
+        <div class="p-4 imgCard__description">
+            <div class="d-flex justify-content-between my-2">
+                <h5 class="fw-bold">{title}</h5>
+                <i>
+                  <img src="assets/arrow.svg" alt="">
+                </i>
+            </div>
+            <p>
+                {text}
+            </p>
+        </div>
+    </div>
+</a>
+
+<style>
+
+    a{
+        text-decoration: none;
+    }
+
+    .imgCard:hover .imgCard__img{
+        padding: 15px;
+        transition: all .3s ease;
+        box-sizing: border-box;
+    }
+    .imgCard:hover{
+        cursor: pointer;
+    }
+
+    .imgCard::after{
+        background-color: var(--yellow);
+        position: absolute;
+        content: "";
+        height: 300px;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+    }
+
+    .imgCard__img{
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+        background-color: var(--purple);
+        transition: all .3s ease;
+        box-sizing: border-box;
+        
+    }
+
+    .imgCard__description{
+        width: 100%;
+        margin: 0 auto;
+        color: var(--black);
+    }
+
+    i img{
+        width: 44px;
+    }
+</style>

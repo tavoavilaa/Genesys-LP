@@ -1,0 +1,57 @@
+---
+export interface Props {
+  number: string;
+  text: string;
+  measure?: string;
+}
+
+const { number, text="lorem", measure="counter__number--porcent" } = Astro.props;
+---
+<div class="counter">
+    <h2 class:list={['counter__number', measure ]} data-target={number}>
+      0
+    </h2>
+    <p class="counter__description mt-3">
+      {text}
+    </p> 
+</div>
+
+
+<style>
+    .counter{
+    padding: 16px;
+  }
+
+  .counter__number{
+    font-size: 4rem;
+    font-weight: bold;
+    font-family: var(--font-title);
+    color: var(--white);
+    position: relative;
+  }
+
+  .counter__description{
+    color: var(--white);
+  }
+
+  .counter__number--porcent::after{
+    content: '%';
+  }
+  .counter__number--M::after{
+    content: 'M';
+  }
+  .counter__number--K::after{
+    content: 'K';
+  }
+
+  .counter__number::before{
+    content: "";
+    display: block;
+    width: 30%;
+    height: 6px;
+    margin: 4px 0;
+    background-color: var(--yellow);
+    position: absolute;
+    bottom: -12px;
+  }
+</style>

@@ -1,0 +1,77 @@
+---
+import Border from "../components/Border.astro";
+
+export interface Props {
+  title: string;
+  img: string;
+  href: string;
+}
+
+const { title, img, href } = Astro.props;
+---
+<div class="horizontalCard">
+    <Border style="border-1">
+      <div class="horizontalCard__img">
+        <img class="w-100 mx-auto d-block " src={img} alt={title} fetchpriority="high">
+      </div>
+    </Border>
+    <div class="horizontalCard__text px-3">
+        <h5 class="fw-bold">
+          {title}
+        </h5>
+    </div>
+    <i>
+        <a href={href}>
+            <img src="/assets/arrow.svg" alt="">
+        </a>
+    </i>
+  </div>
+
+
+
+<style>
+    .horizontalCard{
+        display: grid;
+        align-items: center;
+        justify-content: space-between;
+        grid-template-columns: 1fr 2fr;
+        background-color: var(--gray-200);
+        position: relative;
+        gap: 1rem;
+    }
+
+    @media (max-width: 991.98px){
+    	.horizontalCard{
+            display: grid;
+            align-items: center;
+            justify-content: space-between;
+            grid-template-columns: 1fr;
+            background-color: var(--gray-200);
+            position: relative;
+            gap: 1rem;
+        }
+    }
+
+    i{
+        position: absolute;
+        right: 1rem;
+        bottom: 1rem;
+    }
+
+    @media (max-width: 991.98px){
+        i{
+        position: relative;
+        text-align: right;
+        }
+    }
+
+
+    i img{
+        width: 44px;
+    }
+
+    .horizontalCard__img{
+        background-color: var(--white);
+        padding: 2rem;
+    }
+</style>

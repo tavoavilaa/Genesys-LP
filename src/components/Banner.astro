@@ -1,0 +1,49 @@
+---
+import Button from "../components/Button.astro";
+
+export interface Props {
+    title: string;
+    description?: string;
+    btnText: string;
+    btnLink: string;
+    bgColor: string;
+    complementaryText?: string;
+}
+
+const   {
+            title="Lorem Ipsum",
+            btnText = "Lorem Ipsum",
+            btnLink,
+            bgColor,
+        } = Astro.props;
+---
+
+<section class:list={['container-fluid', bgColor ]}>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="py-5">
+          <h2 class="text-white text-center fw-bold">
+            {title}
+          </h2>
+          <!-- <h5 class="text-white text-center">
+            <b>
+              {description}
+            </b>
+          </h5> -->
+          <div class="text-center">
+            <Button color="white" text={btnText} href={btnLink} />
+          </div>
+          <!-- <p class="text-center text-white mt-0">
+            <em
+              >
+              {complementaryText}
+              </em
+            >
+          </p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

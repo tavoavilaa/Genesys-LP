@@ -1,0 +1,128 @@
+---
+import ColorCard from "../components/ColorCard.astro";
+---
+<section class="splide" aria-label="Splide Basic HTML Example">
+    <div class="splide__track">
+      <ul class="splide__list">
+        <li class="splide__slide pb-5">
+          <ColorCard title="Full innovative solutions" bgColor="bg-red" textColor="text-white">
+            <p>
+              Avaya’s team of experts is here to create a technology partnership with you to visualize, plan, deploy, and implement solutions aligning with your school's or university's mission.
+            </p>
+          </ColorCard>
+        </li>
+        <li class="splide__slide pb-5">
+          <ColorCard title="Reach and recruit new applicants" bgColor="bg-navy" textColor="text-white">
+            <ul>
+              <li class="mb-1">
+                Drive student enrollment by leveraging AI technology to create a competitive advantage.
+              </li>
+              <li class="mb-1">
+                Proactively connect with applicants beyond traditional geographies and communication channels through social networking, messaging, and chat.
+              </li>
+              <li class="mb-1">
+                Personalize campus tours that direct students to resources and facilities specific to their interests.
+              </li>
+              <li class="mb-1">
+                Encourage...
+              </li>
+            </ul>
+            
+          </ColorCard>
+        </li>
+        <li class="splide__slide pb-5">
+          <ColorCard title="Foster successful, on track enrollment" bgColor="bg-purple" textColor="text-white">
+            <ul>
+              <li class="mb-1">
+                Guide students through the enrollment process to stay on track with notification nudging and deadline guidance.
+              </li>
+              <li class="mb-1">
+                Personalize supportive connections during the process with texting, online chatting, and video meetings.
+              </li>
+            </ul>
+          </ColorCard>
+        </li>
+        <li class="splide__slide pb-5">
+          <ColorCard title="Streamline student onboarding experiences to create a welcoming" bgColor="bg-green" textColor="text-black">
+            <ul>
+              <li class="mb-1">
+                Automate tasks and process enhancements letting students easily navigate university business operations. Tightly integrate all forms of digital and in-person support: academics, advising, counseling, and financial aid.
+              </li>
+              <li class="mb-1">
+                Use chatbots and natural language to create a variety of avenues to answer questions regardless of the department.
+              </li>
+            </ul>
+          </ColorCard>
+        </li>
+        <li class="splide__slide pb-5">
+          <ColorCard title="Support student success" bgColor="bg-yellow" textColor="text-black">
+            <ul>
+              <li class="mb-1">
+                Automate scheduling of personalized tutors, freeing up advisors' time to work with students one-on-one.
+              </li>
+              <li class="mb-1">
+                Connect with students using a campus-wide platform that includes video, chat, voice, and collaboration tools. This can be done on any device and integrates into your campus learning management system.
+              </li>
+            </ul>
+          </ColorCard>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+
+
+<style is:global>
+    .carousel-1{
+    background-color: var(--yellow);
+    margin-top: -5%;
+    box-shadow: var(--shadow);
+  }
+
+  .splide__arrow--prev{
+    left: -5%;
+  }
+
+  .splide__arrow--next{
+    right: -5%;
+  }
+
+  @media (max-width: 991.98px){
+    .splide__arrow--prev{
+      display: none;
+    }
+
+    .splide__arrow--next{
+      display: none;
+    }
+  }
+
+  .splide__arrow{
+    border-radius: 0;
+  }
+
+  .splide__pagination{
+    bottom: -1.5em;
+  }
+
+  .splide__pagination__page.is-active{
+    background-color: var(--green) !important;
+    opacity: 1;
+  }
+
+  .carousel__description{
+    width: 75%;
+    margin: 0 auto;
+  }
+
+  .splide__slide{
+    padding: 0 1rem;
+  }
+
+  .splide__arrow--prev{
+    left: -3em !important;
+  }
+  .splide__arrow--next{
+    right: -3em !important;
+  }
+</style>

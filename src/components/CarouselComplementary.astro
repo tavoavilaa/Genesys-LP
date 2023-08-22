@@ -1,0 +1,114 @@
+<section class="splide" aria-label="Splide Basic HTML Example" id="splideComplementary">
+    <div class="splide__track">
+      <ul class="splide__list">
+        <li class="splide__slide">
+          <div class="text-start">
+            <p class="mb-3 "> 
+              “I did not expect a technology company to create families and friends, but Avaya ENGAGE really engaged families. Last time I had a good spirit in a working environment is when I was working for a small company in 1998. Big ups, you went beyond customer experience to trusted strategic partner/family.”   
+            </p>
+            <b>
+              <em>
+                – Aubrey Mochela, Group Chief Technology Officer, City of Johannesburg
+              </em>
+            </b>
+          </div>
+        </li>
+        <li class="splide__slide">
+          <div class="text-start">
+            <p class="mb-3 ">
+              “Avaya Engage 2023 was an exceptional event that exceeded all my expectations. The conference provided a platform for industry experts, thought leaders and professionals from diverse backgrounds to come together and share their insights, knowledge, and experiences”    
+            </p>
+            <b>
+              <em>
+                –  Al Bermudez, Deputy Chief Information Technology Officer, Kern County 
+              </em>
+            </b>
+          </div>
+        </li>
+        <li class="splide__slide">
+          <div class="text-start">
+            <p class="mb-3 ">
+              "Avaya is looking to re-engage with its customers, with renewed focus and product direction for its enterprise communications and contact center offerings."    
+            </p>
+            <b>
+              <em>
+                – Sean Michael Kerner, Reporter, SDxCentral
+              </em>
+            </b>
+          </div>
+        </li>
+
+      </ul>
+
+
+
+ 
+
+    </div>
+  </section>
+
+
+
+<style is:global>
+
+
+  .splide__slide{
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all .3s ease;
+    margin-bottom: 16px;
+  }
+
+  .splide__slide p, .splide__slide  b{
+    margin-bottom: 0;
+    color: var(--white);
+  }
+
+  .splide__slide.is-visible.is-active div p{
+    color: var(--black);
+  }
+  .splide__slide.is-visible.is-active div b{
+    color: var(--black);
+  }
+
+  .splide__slide.is-visible.is-active{
+    background-color: var(--green); 
+    color: var(--black);
+    transition: all .3s ease;
+    transform: translateY(-8px);
+    position: relative;
+    z-index: 3;
+  }
+
+  .splide__pagination__page.is-active{
+    background-color: var(--yellow) !important;
+    opacity: 1;
+  }
+
+
+
+
+  .splide__pagination__page{
+    bottom: -2em;
+  }
+
+  
+  .splide__arrow--prev{
+    left: -4em !important;
+  }
+  .splide__arrow--next{
+    right: -4em !important;
+  }
+
+  @media (max-width: 991.98px){
+    .splide__arrow{
+      display: none !important;
+    }
+  }
+
+
+
+</style>

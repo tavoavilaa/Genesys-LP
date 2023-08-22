@@ -1,0 +1,42 @@
+---
+export interface Props {
+  number: string;
+  text: string;
+}
+
+const { number, text="lorem" } = Astro.props;
+---
+<div class="static-counter">
+    <h2 class="static-counter__number position-relative">
+      {number}
+    </h2>
+    <p class="static-counter__description mt-3">
+      {text}
+    </p> 
+</div>
+
+
+<style>
+    .static-counter{
+    padding: 16px;
+  }
+
+  .static-counter__number{
+    font-size: 2.2rem;
+    font-weight: bold;
+    font-family: var(--font-title);
+    color: var(--black);
+  }
+
+
+  .static-counter__number::before{
+    content: "";
+    display: block;
+    width: 100px;
+    height: 6px;
+    margin: 4px 0;
+    background-color: var(--blue);
+    position: absolute;
+    bottom: -12px;
+  }
+</style>

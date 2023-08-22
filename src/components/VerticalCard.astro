@@ -1,0 +1,45 @@
+---
+import Border from "./Border.astro";
+---
+<div class="verticalCard">
+    <Border style="border-1">
+      <img class="w-100 mx-auto d-block" src="assets/header-card-1-logo.jpg" alt="man and woman talking" fetchpriority="high">
+    </Border>
+    <div class="verticalCard__text p-4 pb-5">
+        <h5 class="fw-bold">
+            When school doors closed, cameras created interactive student experiences
+        </h5>
+        <p>Avaya's collaboration technology not only allowed the school to continue its classes without delay, but also constituted a tool of socialization and approach between in-person and online students.</p>
+    </div>
+    <i>
+        <a href="#">
+            <img src="/assets/arrow.svg" alt="">
+        </a>
+    </i>
+  </div>
+
+
+
+<style>
+    .verticalCard{
+        display: grid;
+        align-items: center;
+        justify-content: space-between;
+        grid-template-columns: 1fr;
+        background-color: var(--gray-200);
+        position: relative;
+  
+    }
+    i{
+        position: absolute;
+        right: 1rem;
+        bottom: 1rem;
+    }
+    i img{
+        width: 44px;
+    }
+
+    .verticalCard__text{
+        min-height: 288px;
+    }
+</style>

@@ -1,0 +1,70 @@
+---
+export interface Props{
+    title: string;
+    bgColor: string;
+    textColor: string;
+
+}
+
+const {title,  bgColor, textColor} = Astro.props
+---
+
+<div class="color-card">
+  <div class:list={['p-3 pb-0 text-center card-experience-container__title', bgColor, textColor ]}>
+    <h5>
+      <b>{title}</b>
+    </h5>
+  </div>
+  <div class="p-3 pt-4 card-experience-container__list">
+    <slot/>
+  </div>
+</div>
+
+<style>
+  .card-experience-container__title {
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    color: var(--white);
+    box-shadow: var(--shadow);
+    font-size: 14px;
+    z-index: 1;
+  }
+
+  .card-experience-container__list ul {
+    list-style: square;
+  }
+  .card-experience-container__list ul li {
+    margin-bottom: 8px;
+  }
+
+  .card-experience-container__list p {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .card-experience {
+    transition: all 0.3s ease;
+  }
+
+  .card-experience:hover {
+    transform: translateY(-16px);
+    transition: all 0.3s ease;
+  }
+
+  .card-experience-container__list {
+    box-shadow: var(--shadow);
+    font-size: 14px;
+    background-color: var(--white);
+    position: relative;
+    opacity: 1;
+    transition: all 0.3s ease;
+    min-height: 240px;
+  }
+
+
+</style>
+
+
